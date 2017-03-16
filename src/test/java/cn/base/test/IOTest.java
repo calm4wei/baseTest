@@ -2,8 +2,7 @@ package cn.base.test;
 
 import org.junit.Test;
 
-import java.io.IOException;
-import java.io.RandomAccessFile;
+import java.io.*;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 
@@ -56,5 +55,43 @@ public class IOTest {
         fromFile.close();
         toFile.close();
         toChannel.close();
+    }
+
+    @Test
+    public void listRoots() {
+        File[] roots = File.listRoots();
+        for (File root : roots) {
+            System.out.println(root);
+        }
+        File file = new File(".");
+        String[] nameList = file.list(new FilenameFilter() {
+            public boolean accept(File dir, String name) {
+                return name.endsWith(".git")
+                        || new File(name).isDirectory()
+                        ;
+            }
+        });
+
+        for (String name : nameList) {
+            System.out.println(name);
+        }
+
+    }
+
+    @Test
+    public void test_process() throws IOException {
+        BufferedReader br = null;
+        try {
+            Process p = Runtime.getRuntime().exec("javac");
+            br = new BufferedReader(new InputStreamReader(p.getErrorStream()));
+            String buff = null;
+            while ((buff = br.readLine()) != null) {
+                System.out.println(buff);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            br.close();
+        }
     }
 }
