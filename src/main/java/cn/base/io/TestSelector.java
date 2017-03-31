@@ -3,9 +3,9 @@ package cn.base.io;
 import java.nio.channels.Selector;
 import java.lang.RuntimeException;
 import java.lang.Thread;
-public class TestSelector {
+class TestSelector {
     private static final int MAXSIZE=5;
-    public static final void main( String argc[] ) {
+    public static void main( String argc[] ) {
         Selector [] sels = new Selector[ MAXSIZE];
  
             try{

@@ -72,8 +72,10 @@ public class IOTest {
             }
         });
 
-        for (String name : nameList) {
-            System.out.println(name);
+        if (nameList != null) {
+            for (String name : nameList) {
+                System.out.println(name);
+            }
         }
 
     }
@@ -84,14 +86,23 @@ public class IOTest {
         try {
             Process p = Runtime.getRuntime().exec("javac");
             br = new BufferedReader(new InputStreamReader(p.getErrorStream()));
-            String buff = null;
+            String buff;
             while ((buff = br.readLine()) != null) {
                 System.out.println(buff);
             }
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            br.close();
+            if (br != null) {
+                br.close();
+            }
         }
+    }
+
+    @Test
+    public void test_net_str() {
+        String url = "http://localhost:8089/resource/tt.txt";
+        String fileName = url.substring(url.lastIndexOf("/") + 1, url.length());
+        System.out.println("bak-" + fileName);
     }
 }

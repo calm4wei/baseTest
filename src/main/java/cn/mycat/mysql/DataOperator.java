@@ -10,7 +10,7 @@ import java.util.Random;
  *
  * @author feng.wei
  */
-public class DataOperator {
+class DataOperator {
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
         String chs = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";

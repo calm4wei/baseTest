@@ -9,15 +9,15 @@ import java.sql.SQLException;
  *
  * @author feng.wei
  */
-public class DataSource {
+class DataSource {
 
-    static String url_mycat = "jdbc:mysql://192.168.1.205:8066/test";
-    static String user_mycat = "mycat";
-    static String password_mycat = "mycat";
+    private static String url_mycat = "jdbc:mysql://192.168.1.205:8066/test";
+    private static String user_mycat = "mycat";
+    private static String password_mycat = "mycat";
 
-    static String url = "jdbc:mysql://192.168.1.205:3306/master_slave_test";
-    static String user = "root";
-    static String password = "root";
+    private static String url = "jdbc:mysql://192.168.1.205:3306/master_slave_test";
+    private static String user = "root";
+    private static String password = "root";
 
     static {
         try {

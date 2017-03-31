@@ -11,7 +11,7 @@ import java.nio.channels.SocketChannel;
 import java.util.Iterator;
 import java.util.Set;
 
-public class SelectorServerTest {
+class SelectorServerTest {
 
     public static void main(String args[]) throws IOException, InterruptedException {
         Selector selector = Selector.open(); // 创建Selector

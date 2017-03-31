@@ -1,6 +1,8 @@
 package cn.base.test;
 
 import cn.base.reflect.Single;
+import cn.base.reflect.SingletonEnum;
+import cn.base.reflect.StaticSingle;
 import org.junit.Test;
 
 import java.lang.reflect.Constructor;
@@ -38,6 +40,30 @@ public class FeaturesTest {
         System.out.println(s1.equals(s2));
         System.out.println(s3.equals(s4));
         System.out.println(s1.equals(s3));
+    }
+
+    @Test
+    public void test_static_singleReflect() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+        Constructor con = StaticSingle.class.getDeclaredConstructor();
+        con.setAccessible(true);
+        System.out.println("instance....");
+        StaticSingle s1 = StaticSingle.getInstance();
+        StaticSingle s2 = StaticSingle.getInstance();
+
+        StaticSingle s3 = (StaticSingle) con.newInstance();
+        StaticSingle s4 = (StaticSingle) con.newInstance();
+        System.out.println(s1);
+        System.out.println(s2);
+        System.out.println(s3);
+        System.out.println(s4);
+    }
+
+
+    @Test
+    public void test_enum_single() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+        SingletonEnum s1 = SingletonEnum.INSTANCE;
+
+        System.out.println(s1);
     }
 
     @Test
@@ -177,6 +203,12 @@ public class FeaturesTest {
         for (int arr : arr4) {
             System.out.print(arr + " ");
         }
+    }
+
+    @Test
+    public void test_single() {
+        System.out.println(Single.getInstance());
+        System.out.println(Single.getInstance());
     }
 
 }

@@ -1,8 +1,8 @@
 package cn.base.test;
 
-public class VariantTest {
-    public static int staticVar = 0;
-    public int instanceVar = 0;
+class VariantTest {
+    private static int staticVar = 0;
+    private int instanceVar = 0;
 
     public VariantTest() {
         staticVar++;

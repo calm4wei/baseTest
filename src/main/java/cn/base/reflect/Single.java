@@ -30,12 +30,11 @@ public class Single {
 
     /**
      * 懒汉模式
+     * 双检锁
      *
      * @return
      */
     public static Single getInstance() {
-
-
         if (null == instance) {
             synchronized (Single.class) {
                 if (null == instance) {
@@ -49,3 +48,4 @@ public class Single {
 
 
 }
+

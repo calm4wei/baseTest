@@ -8,7 +8,7 @@ import java.nio.channels.SocketChannel;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class ClientSocketChannelTest2 {
+class ClientSocketChannelTest2 {
 
     public static void main(String[] args) throws IOException, InterruptedException {
         SocketChannel socketChannel = SocketChannel.open(); // 创建SocketChannel
